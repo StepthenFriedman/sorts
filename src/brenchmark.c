@@ -19,7 +19,7 @@ void test_insertion(){
     }
     int a[]={9,2,5,3,6,4,7,8,1};
     int i,len=sizeof(a)/sizeof(int);
-    insertionsort(a,a+len,sizeof(int),cmp);
+    isort(a,len,sizeof(int),cmp);
     for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
 }
 

@@ -14,8 +14,8 @@ void insertionsort_basic(void *start,void *end,unsigned long size,int (*cmp)(con
     free(temp);
 }
 
-void insertionsort(void *start,void *end,unsigned long size,int (*cmp)(const void *,const void *)){
-    void *sorted=start,*ptr=start+size,*change,*temp=(void*)malloc(size);
+void isort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(const void *,const void *)){
+    void *sorted=start,*ptr=start+size,*change,*temp=(void*)malloc(size),*end=start+total_elem*size;
     int check(const void *x){return cmp(x,temp)>=0;}
     for (;ptr<end;ptr+=size) if (cmp(ptr,ptr-size)<0) {
         change=ptr;
@@ -25,10 +25,6 @@ void insertionsort(void *start,void *end,unsigned long size,int (*cmp)(const voi
         copy(change,temp,size);
     }
     free(temp);
-}
-
-void isort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(const void *,const void *)){
-    insertionsort(start,start+total_elem*size,size,cmp);
 }
 
 void insertionsort_skip(void *start,void *end,unsigned long skip_elem,unsigned long size,int (*cmp)(const void *,const void *)){
