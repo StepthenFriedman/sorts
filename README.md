@@ -11,9 +11,12 @@
  	
  	-heap sort
  	
+	-merge sort
+
  	-bucket sort
  	
  	-radix sort
  	
  	-counting sort
  	
+ 	-comb sort

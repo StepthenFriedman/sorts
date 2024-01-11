@@ -10,6 +10,7 @@
 #include "radixsort-LSD.h"
 #include "mergesort.h"
 #include "shellsort.h"
+#include "combsort.h"
 #include "insertionsort.h"
 
 
@@ -18,6 +19,16 @@ void test_insertion(){
         return *((int*)a)-*((int*)b);
     }
     int a[]={9,2,5,3,6,4,7,8,1};
+    int i,len=sizeof(a)/sizeof(int);
+    combsort(a,len,sizeof(int),cmp);
+    for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
+}
+
+void test_comb(){
+    int cmp(const void *a,const void *b){
+        return *((int*)a)-*((int*)b);
+    }
+    int a[]={9,1,5,3,6,4,7,8,1};
     int i,len=sizeof(a)/sizeof(int);
     isort(a,len,sizeof(int),cmp);
     for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
@@ -31,6 +42,6 @@ void test_copy(){
 }
 
 int main(){
-    test_insertion();
+    test_comb();
     return 0;
 }
