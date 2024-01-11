@@ -3,6 +3,13 @@
 #include "./insertionsort.h"
 #define SWITCH_TO_INSERSION 20UL
 
+void* mid(const void *a,const void *b,const void *c,int (*cmp)(const void *,const void *)){
+    int m=cmp(a,b),n=cmp(b,c),k=cmp(c,a);
+    if (m*k>=0) return (void*)a;
+    if (m*n>=0) return (void*)b;
+    return (void*)c;
+}
+
 void quicksort_basic(void *start,void *end,unsigned long size,int (*cmp)(const void *,const void *)){
     if (end<=start+size) return;
     void *base=start,*i=start,*j=end-size;
@@ -22,6 +29,7 @@ void quicksort(void *start,void *end,unsigned long size,int (*cmp)(const void *,
         insertionsort(start,end,size,cmp);
         return;
     }
+    swap(mid(start,start+((end-start)/(2*size))*size,end-size,cmp),start,size);
     void *base=start,*i=start,*j=end-size;
     while (i<j){
         while (cmp(j,base)>=0&&i<j) j-=size;
@@ -39,6 +47,7 @@ void quicksort_3way(void *start,void *end,unsigned long size,int (*cmp)(const vo
         insertionsort(start,end,size,cmp);
         return;
     }
+    swap(mid(start,start+((end-start)/(2*size))*size,end-size,cmp),start,size);
     void *base=start,*i=start,*i2=i+size,*j=end,*j2=j-size;
     while (i2<=j2){
         while (cmp(j2,base)==0&&i2<j2) j2-=size;
