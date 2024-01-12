@@ -1,22 +1,24 @@
 # sorts
  all kinds of sorting algorithm for all types.
 
- including:
+ including:				Time Complexity:	Space Complexity:
  
- 	-quick sort
+ 	-quick sort			O(nlogn)			O(1)
  	
- 	-insertion sort
+ 	-insertion sort		O(nlogn)			O(1)
  	
- 	-shell sort
+ 	-shell sort			O(nlogn)			O(1)
  	
- 	-heap sort
+ 	-heap sort			O(nlogn)			O(1)
  	
-	-merge sort
+	-merge sort 		O(nlogn)			O(nlogn)	--need optimision
 
- 	-bucket sort
+ 	-bucket sort		O(n+m)				O(n)
  	
- 	-radix sort
+ 	-radix sort			O(nlogn)			O(n)
  	
- 	-counting sort
+ 	-counting sort		O(n+m)				O(m)
  	
- 	-comb sort
+ 	-comb sort			O(nlogn)			O(1)
+
+	-patience sort		O(nlogn)			O(n)

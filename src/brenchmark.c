@@ -12,6 +12,7 @@
 #include "shellsort.h"
 #include "combsort.h"
 #include "insertionsort.h"
+#include "patiencesort.h"
 
 
 void test_insertion(){
@@ -44,6 +45,16 @@ void test_quick(){
     for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
 }
 
+void test_patience(){
+    int cmp(const void *a,const void *b){
+        return *((int*)a)-*((int*)b);
+    }
+    int a[]={9,1,3,1,2,7,8,10,9,5,3,6,4,7,8,1};
+    int i,len=sizeof(a)/sizeof(int);
+    psort(a,len,sizeof(int),cmp);
+    for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
+}
+
 void test_copy(){
     int a[]={9,2,5,3,6,4,7,8,1,10,9,3,4,2,5,1,0,4};
     int i,len=sizeof(a)/sizeof(int);
@@ -52,6 +63,6 @@ void test_copy(){
 }
 
 int main(){
-    test_quick();
+    test_patience();
     return 0;
 }

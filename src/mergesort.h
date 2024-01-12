@@ -1,6 +1,8 @@
 #pragma once
 #include "./bits.h"
+#include "./insertionsort.h"
 #include <stdlib.h>
+#define SWITCH_TO_INSERSION 20UL
 
 void merge(void *start,void *mid,void *end,unsigned long size,int (*cmp)(const void *,const void *)){
     void *temp=malloc(end-start+size);
@@ -16,6 +18,10 @@ void merge(void *start,void *mid,void *end,unsigned long size,int (*cmp)(const v
 }
 void mergesort(void *start,void *end,unsigned long size,int (*cmp)(const void *,const void *)){
     if (end<=start) return;
+    if ((end-start)/size<=SWITCH_TO_INSERSION){
+        insertionsort(start,end,size,cmp);
+        return;
+    }
     void* mid=start+((end-start)/(2*size))*size;
     mergesort(start,mid,size,cmp);
     mergesort(mid+size,end,size,cmp);
