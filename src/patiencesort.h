@@ -30,7 +30,7 @@ void psort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(co
         if (whichHeap[ptr]) newptr+=heapElemCount[whichHeap[ptr]-1];
         copy(temp+newptr*size,start+ptr*size,size);
     }
-    for (heapptr=0;heapptr<heapNum;heapptr++) merge(temp,temp+size*(heapElemCount[heapptr]-1),temp+size*(heapElemCount[heapptr+1]-1),size,cmp);
+    for (heapptr=0;heapptr<heapNum;heapptr++) merge_basic(temp,temp+size*(heapElemCount[heapptr]-1),temp+size*(heapElemCount[heapptr+1]-1),size,cmp);
 
     for (ptr=0;ptr<total_elem;ptr++) copy(start+ptr*size,temp+ptr*size,size);
     
