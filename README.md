@@ -3,7 +3,7 @@
 
  including:  
 
- 	-Algorithm          Time Complexity:    Space Complexity:   Stability:
+ 	 Algorithm          Time Complexity:    Space Complexity:   Stability:
  
 	-comb sort          O(nlogn)            O(1) in-place       stable
 

@@ -6,7 +6,7 @@
 
 void merge_basic(void *start,void *mid,void *end,unsigned long size,int (*cmp)(const void *,const void *)){
     void *temp=malloc(end-start+size);
-    void *i=start,*j=mid+size,*cpy=temp,*fre=temp,*disp;
+    void *i=start,*j=mid+size,*cpy=temp,*fre=temp;
     while (i<=mid&&j<=end){
         if (cmp(i,j)<0) copy(temp,i,size),temp+=size,i+=size;
         else            copy(temp,j,size),temp+=size,j+=size;
@@ -25,7 +25,7 @@ void mergesort_basic(void *start,void *end,unsigned long size,int (*cmp)(const v
 }
 
 void merge(void *start,void *mid,void *end,void *temp,unsigned long size,int (*cmp)(const void *,const void *)){
-    void *i=start,*j=mid+size,*cpy=temp,*fre=temp,*disp;
+    void *i=start,*j=mid+size,*cpy=temp;
     while (i<=mid&&j<=end){
         if (cmp(i,j)<0) copy(temp,i,size),temp+=size,i+=size;
         else            copy(temp,j,size),temp+=size,j+=size;
