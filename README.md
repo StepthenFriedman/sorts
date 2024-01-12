@@ -1,17 +1,17 @@
 # sorts
  all kinds of sorting algorithm for all types.
 
- including:				Time Complexity:	Space Complexity:	Stability:
+ including:             Time Complexity:    Space Complexity:   Stability:
  
- comb sort				O(nlogn)			O(1) in-place		stable
+ 	-comb sort			O(nlogn)			O(1) in-place		stable
 
- quick sort				O(nlogn)			O(1) in-place		unstable
+ 	-quick sort			O(nlogn)			O(1) in-place		unstable
  	
- insertion sort 		O(nlogn)			O(1) in-place		stable
+ 	-insertion sort		O(nlogn)			O(1) in-place		stable
  	
- shell sort 			O(nlogn)			O(1) in-place		stable
+ 	-shell sort			O(nlogn)			O(1) in-place		stable
  	
- heap sort				O(nlogn)			O(1) in-place		unstable
+ 	-heap sort			O(nlogn)			O(1) in-place		unstable
  	
 	-merge sort 		O(nlogn)			O(n) out-place		stable
 
