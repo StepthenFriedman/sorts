@@ -16,27 +16,16 @@ node *creat_node(void *ptr,unsigned long size){
     return res;
 }
 
-void freetree(node *top){
-    if (top->ls!=NULL) freetree(top->ls);
-    if (top->rs!=NULL) freetree(top->rs);
-    free(top->value);
-    free(top);
-}
-
-void printqueue(queue* q){
-    for (int i=q->hh;i<q->tt;i++) printf("%d ",*(int*)(((node*)(q->data+(q->size)*i))->value));
-    putchar('\n');
-}
-
 void sortq(queue* q,int (*cmpnode)(const void *,const void *)){
-    isort(q->data+(q->size)*(q->hh),(unsigned long)(q->tt-q->hh),q->size,cmpnode);
+    insertonce(q->data+(q->size)*(q->hh),(unsigned long)(q->tt-q->hh),q->size,cmpnode);
 }
 
+void freeq(queue* q){
+    free(q->data),free(q);
+}
 
 void ctsort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(const void *,const void *)){
-    int cmpnode(const void *a,const void *b){
-        return cmp(((node*)a)->value,((node*)b)->value);
-    }
+    int cmpnode(const void *a,const void *b){return cmp(((node*)a)->value,((node*)b)->value);}
     node **stack=malloc(total_elem*sizeof(node*)), *newelem,
     **top=stack,**k;
     for (void *ptr=start;ptr<start+total_elem*size;ptr+=size) {
@@ -51,15 +40,15 @@ void ctsort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(c
     node *elem=(node*)malloc(sizeof(node));
     int sortedNum=0;
     queue* pq=creat_queue(sizeof(node),total_elem);
-    push(pq,*stack);
+    pushback(pq,*stack);
+    free(*stack);
     while (sortedNum<total_elem){
         pophead(pq,elem);
         copy(start+size*sortedNum,elem->value,size);
-        if (elem->ls!=NULL) push(pq,elem->ls);
-        if (elem->rs!=NULL) push(pq,elem->rs);
-        sortq(pq,cmpnode);
+        free(elem->value);
+        if (elem->ls!=NULL) pushback(pq,elem->ls),free(elem->ls),sortq(pq,cmpnode);
+        if (elem->rs!=NULL) pushback(pq,elem->rs),free(elem->rs),sortq(pq,cmpnode);
         sortedNum++;
     }
-    freetree(*stack);
     free(stack),free(elem),freeq(pq);
 }

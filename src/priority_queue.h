@@ -17,10 +17,6 @@ void pophead(queue* q,void *recv){
     if (q->hh<q->tt) copy(recv,q->data+(q->size)*(q->hh),q->size),q->hh++;
 }
 
-void push(queue* q,void *elem){
+void pushback(queue* q,void *elem){
     copy(q->data+(q->size)*((q->tt)++),elem,q->size);
-}
-
-void freeq(queue* q){
-    free(q->data),free(q);
 }

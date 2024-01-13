@@ -19,7 +19,7 @@ void test_insertion(){
     int cmp(const void *a,const void *b){
         return *((int*)a)-*((int*)b);
     }
-    int a[]={9,2,5,3,6,4,7,8,1};
+    int a[]={9,1,3,1,2,7,8,10,9,5,3,6,4,7,8,1};
     int i,len=sizeof(a)/sizeof(int);
     isort(a,len,sizeof(int),cmp);
     for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
@@ -29,7 +29,7 @@ void test_merge(){
     int cmp(const void *a,const void *b){
         return *((int*)a)-*((int*)b);
     }
-    int a[]={9,2,5,3,6,4,7,8,1};
+    int a[]={9,1,3,1,2,7,8,10,9,5,3,6,4,7,8,1};
     int i,len=sizeof(a)/sizeof(int);
     msort(a,len,sizeof(int),cmp);
     for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
