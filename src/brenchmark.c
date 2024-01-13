@@ -13,7 +13,7 @@
 #include "combsort.h"
 #include "insertionsort.h"
 #include "patiencesort.h"
-
+#include "cartesianTreesort.h"
 
 void test_insertion(){
     int cmp(const void *a,const void *b){
@@ -66,6 +66,16 @@ void test_patience(){
     for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
 }
 
+void test_cartesiantree(){
+    int cmp(const void *a,const void *b){
+        return *((int*)a)-*((int*)b);
+    }
+    int a[]={9,1,3,1,2,7,8,10,9,5,3,6,4,7,8,1};
+    int i,len=sizeof(a)/sizeof(int);
+    ctsort(a,len,sizeof(int),cmp);
+    for (i=0;i<len;i++) printf("%d ",a[i]); putchar('\n');
+}
+
 void test_copy(){
     int a[]={9,2,5,3,6,4,7,8,1,10,9,3,4,2,5,1,0,4};
     int i,len=sizeof(a)/sizeof(int);
@@ -74,6 +84,6 @@ void test_copy(){
 }
 
 int main(){
-    test_merge();
+    test_cartesiantree();
     return 0;
 }
