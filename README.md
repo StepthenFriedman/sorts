@@ -26,3 +26,7 @@
 	-patience sort        O(nlogn)            O(n) out-place      stable
 
 	-Cartesian Tree sort  O(nlogn)            O(n) out-place      unstable
+
+	-smooth sort (under construction)
+
+	-kuan sort            O(nlogn)            O(n) out-place      unstable

@@ -1,6 +1,6 @@
 #pragma once
 #include "./bits.h"
-#define RATE 1.24
+#define RATE 1.27
 
 void combsort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(const void *,const void *)){
     unsigned long skip=total_elem,i,j;

@@ -11,8 +11,8 @@ void merge_basic(void *start,void *mid,void *end,unsigned long size,int (*cmp)(c
         if (cmp(i,j)<0) copy(temp,i,size),temp+=size,i+=size;
         else            copy(temp,j,size),temp+=size,j+=size;
     }
-    while (i<=mid) copy(temp,i,size),temp+=size,i+=size;
-    while (j<=end) copy(temp,j,size),temp+=size,j+=size;
+    while (i<=mid) copy(temp,i,size),temp+=size,i+=size;//need optimisation
+    while (j<=end) copy(temp,j,size),temp+=size,j+=size;//need optimisation
     for (i=start;i<=end;i+=size,cpy+=size) copy(i,cpy,size);
     free(fre);
 }
@@ -30,8 +30,8 @@ void merge(void *start,void *mid,void *end,void *temp,unsigned long size,int (*c
         if (cmp(i,j)<0) copy(temp,i,size),temp+=size,i+=size;
         else            copy(temp,j,size),temp+=size,j+=size;
     }
-    while (i<=mid) copy(temp,i,size),temp+=size,i+=size;
-    while (j<=end) copy(temp,j,size),temp+=size,j+=size;
+    while (i<=mid) copy(temp,i,size),temp+=size,i+=size;//need optimisation
+    while (j<=end) copy(temp,j,size),temp+=size,j+=size;//need optimisation
     for (i=start;i<=end;i+=size,cpy+=size) copy(i,cpy,size);
 }
 void mergesort(void *start,void *end,void *temp,unsigned long size,int (*cmp)(const void *,const void *)){

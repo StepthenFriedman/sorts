@@ -64,6 +64,6 @@ void quicksort_3way(void *start,void *end,unsigned long size,int (*cmp)(const vo
     quicksort_3way(j,end,size,cmp);
 }
 
-void qsort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(const void *,const void *)){
-    quicksort_3way(start,start+total_elem*size,size,cmp);
+void qksort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(const void *,const void *)){
+    quicksort(start,start+total_elem*size,size,cmp);
 }

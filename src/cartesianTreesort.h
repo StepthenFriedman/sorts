@@ -41,7 +41,7 @@ void ctsort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(c
     int sortedNum=0;
     queue* pq=creat_queue(sizeof(node),total_elem);
     pushback(pq,*stack);
-    free(*stack);
+    free(*stack),free(stack);
     while (sortedNum<total_elem){
         pophead(pq,elem);
         copy(start+size*sortedNum,elem->value,size);
@@ -50,5 +50,5 @@ void ctsort(void *start,unsigned long total_elem,unsigned long size,int (*cmp)(c
         if (elem->rs!=NULL) pushback(pq,elem->rs),free(elem->rs),sortq(pq,cmpnode);
         sortedNum++;
     }
-    free(stack),free(elem),freeq(pq);
+    free(elem),freeq(pq);
 }
